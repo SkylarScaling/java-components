@@ -33,5 +33,11 @@ public class FXMLStage extends Stage
     this.initModality(modal ? Modality.APPLICATION_MODAL : Modality.NONE);
     this.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream(iconPath)));
     this.setScene(scene);
+    ((FXMLController)fxmlLoader.getController()).setStage(this);
+  }
+  
+  public FXMLController getController()
+  {
+    return fxmlLoader.getController();
   }
 }
