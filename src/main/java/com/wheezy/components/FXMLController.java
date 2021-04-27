@@ -3,6 +3,8 @@ package com.wheezy.components;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 
@@ -25,4 +27,10 @@ public class FXMLController implements Initializable
   {
     this.stage = stage;
   }  
+
+  @FXML
+  public void close(ActionEvent event)
+  {
+    getStage().close();
+  }
 }
