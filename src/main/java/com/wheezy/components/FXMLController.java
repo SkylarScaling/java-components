@@ -1,4 +1,4 @@
-package com.wheezy.components.controller;
+package com.wheezy.components;
 
 import java.net.URL;
 import java.util.ResourceBundle;
