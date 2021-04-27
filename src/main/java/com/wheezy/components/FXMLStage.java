@@ -15,7 +15,7 @@ public class FXMLStage extends Stage
   private String title;
   private String iconPath;
   private boolean modal;
-  
+
   public FXMLStage(FXMLLoader fxmlLoader, String title, String iconPath, boolean modal)
   {
     this.fxmlLoader = fxmlLoader;
@@ -23,7 +23,7 @@ public class FXMLStage extends Stage
     this.iconPath = iconPath;
     this.modal = modal;
   }
-  
+
   public void initStage() throws IOException
   {
     Parent parent;
@@ -33,9 +33,13 @@ public class FXMLStage extends Stage
     this.initModality(modal ? Modality.APPLICATION_MODAL : Modality.NONE);
     this.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream(iconPath)));
     this.setScene(scene);
-    ((FXMLController)fxmlLoader.getController()).setStage(this);
+
+    if (fxmlLoader.getController() instanceof FXMLController)
+    {
+      ((FXMLController) fxmlLoader.getController()).setStage(this);
+    }
   }
-  
+
   public FXMLController getController()
   {
     return fxmlLoader.getController();
